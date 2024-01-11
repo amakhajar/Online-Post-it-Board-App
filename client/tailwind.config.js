@@ -1,14 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-const windmill = require('@windmill/react-ui/config')
 
-module.exports = windmill({
-  content: ["./src/**/*.{html,jsx,tsx}",
-  "./node_modules/tw-elements-react/dist/js/**/*.js",],
-  plugins: [require("tw-elements-react/dist/plugin.cjs")],
-  darkMode: "class",
+
+module.exports ={
+  content: ['./src/**/*.{html,jsx,tsx,js,ts}',],
+  
   theme: {
     extend: {},
   },
-  plugins: [],
-})
+  plugins: [
+		require("tailwindcss-animate"),
+		// ...
+	],
+}
 

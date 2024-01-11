@@ -1,49 +1,48 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
-const path = require('path');
+const path = require("path");
+//const ESLintPlugin = require("eslint-webpack-plugin");
+
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: path.resolve(__dirname,"src","index.html"),
-  title: "Test"
+  template: "./src/index.html",
+  filename: "./index.html",
 });
 module.exports = (env, argv) => {
   console.log(argv.mode);
   return {
     entry: "./src/index.tsx",
     output: {
-      path: path.join(__dirname, 'dist'),
-      filename: "bundle.js"
+      path: path.join(__dirname, "dist"),
+      filename: "bundle.js",
+    },
+    resolve: {
+      extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
     },
     plugins: [
       htmlPlugin,
-      new ESLintPlugin({
+     /* new ESLintPlugin({
         extensions: ["js", "jsx", "ts", "tsx"],
-      }),
+      })*/
     ],
     module: {
       rules: [
         {
-            test: /\.(ts|tsx)$/,
-            use: 'ts-loader',
-            exclude: /node_modules/,
-           
-            resolve: {
-                extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
-              },
-              
-              
+          test: /\.(ts|tsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "ts-loader",
           },
-          {
-            test: /\.(png|svg|jpg|gif)$/,
-            loader: 'file-loader',
-            options: { name: '/static/[name].[ext]' }
-          },
-          {
-            test: /\.css$/i,
-        use: "css-loader",
-          }
-          
-          
-      ]
-    }
+        },
+        {
+          test: /\.(png|svg|jpg|gif)$/,
+          loader: "file-loader",
+          options: { name: "/static/[name].[ext]" },
+        },
+        {
+          test: /\.css$/i,
+          include: __dirname,//path.resolve(__dirname, 'src/styles'),
+          use: ['style-loader', 'css-loader', 'postcss-loader'],
+        },
+      ],
+    },
   };
 };
