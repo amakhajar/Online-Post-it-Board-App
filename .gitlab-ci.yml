@@ -1,28 +1,25 @@
 image: node
 
+#Ce job doit être exécuté avant les autre car il installe les dépendances
 default:
   before_script:
    - cd client && yarn install
 
 stages:
-  #- lint
+  - lint
   - deploy
 
+#ce job est pour évaluer le code avec ESlint
+eslint:
+ stage: lint
+ script:
+    - yarn run lint
 
-
-#eslint:
-# stage: lint
-# script:
- #   - yarn run lint
-
+#ce job est pour le déploiement
 pages:
-  
   stage: deploy
-  variables:
-    PUBLIC_URL: https://p2312644.forge.univ-lyon1.fr/tiw8-tp1
   script:
-    - yarn run build
-  
+    - yarn run build  
   artifacts:
     paths:
     - client/dist
