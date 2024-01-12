@@ -66,7 +66,7 @@ Le projet est composé de deux principaux dossiers :
 
 ## Manipulation En Local 
 
-        yarn install        :  Pour installer les depéndences (à lancer depuis les deux répertoires)
+        yarn install        :  Pour installer les depéndences (à lancer depuis les deux répertoires _client_ et _server_)
         yarn run dev        :  Pour construire le client en mode développement (depuis le répertoire _client_ )
         yarn run build      :  Pour construire le client en mode production (depuis le répertoire _client_ )
         yarn run start      :  Pour lancer le serveur (depuis le répertoire _server_ )
