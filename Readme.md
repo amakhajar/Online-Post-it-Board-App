@@ -35,19 +35,30 @@ git clone https://forge.univ-lyon1.fr/p2312644/tiw8.git
 > _Remarque: à lancer depuis les deux répertoires _client_ et _server__
 
 ##### 3. Lancer le serveur
+~~~~
 Accéder au répertoire par un `cd server` et puis lancer `yarn run start`
+~~~~
 
 > _Le serveur se lance sur le port `3000`_
 
 ##### 4. Lancer le client
--  En mode développement : `yarn run dev`
+-  En mode développement : 
+~~~~
+yarn run dev
+~~~~
  
--  En mode production : `yarn run build`
+-  En mode production : 
+~~~~
+yarn run build
+~~~~
 
 > _L'application est disponible sur_ [localhost:3000]() 
 
 ##### 5.  Evaluer le code 
- `yarn run lint`
+
+~~~~
+yarn run lint
+~~~~
 
 > _Remarque: à lancer depuis le répertoire _client__
 
