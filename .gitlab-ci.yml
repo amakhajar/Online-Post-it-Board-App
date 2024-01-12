@@ -4,6 +4,10 @@ image: node
 default:
   before_script:
    - cd client && yarn install
+  cache:
+    paths:
+    - client/node_modules
+
 
 stages:
   - lint
