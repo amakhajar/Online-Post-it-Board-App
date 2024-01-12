@@ -4,7 +4,7 @@ cache:
     paths:
     - client/node_modules
 
-#Ce job doit être exécuté avant les autre car il installe les dépendances
+#Ce job doit être exécuté en premier pour installer les dépendances
 default:
   before_script:
    - cd client && yarn install
@@ -13,13 +13,13 @@ stages:
   - lint
   - deploy
 
-#ce job est pour évaluer le code avec ESlint
+#Ce job évalue le code avec ESlint
 eslint:
  stage: lint
  script:
     - yarn run lint
 
-#ce job est pour le déploiement
+#Ce job déploie l'application 
 pages:
   stage: deploy
   script:
