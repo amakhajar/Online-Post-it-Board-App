@@ -1,18 +1,21 @@
-# Hajar AMAKHZOUN p2312644
+# TIW8 - TP1 Mise en place Stack
+Réalisé par **Hajar Amakhzoun** 
 
 ## Le projet
+
 L'application est déployée et disponible sur ce lien: https://tiw8-ibrahimi-elamim.uni.codinget.me/
 
 Le projet est composé de deux dossiers importants :
- 1/ Dossier *Server*: partie back de l'application (NodeJs + ExpressJs)
- 
- 2/ Dossier *Client*: partie front de l'application (React)
 
-## Requirements
+  1. Dossier *Server*: partie back de l'application (NodeJs + ExpressJs)  
+  2. Dossier *Client*: partie front de l'application (React)
 
-    NodeJs : lts
-    nvm    : lts
-    Express : lts
+
+## Exigences (dernière version lts)
+
+    NodeJs 
+    nvm    
+    Express
 
 ## Dépendances
 
@@ -60,27 +63,14 @@ Le projet est composé de deux dossiers importants :
         "webpack-cli": "^5.1.4",
         "webpack-dev-server": "^4.15.1"
 
-## Setup 
 
-    Dans le serveur 
-        yarn add express --save
-        yarn add typescript ts-node express --dev
-        yarn add @types/node @types/express
-        npm i -g tsc
-        tsc --init
+## Manipulation En Local 
 
-    Dans le client
-        yarn add typescript --dev 
-        yarn add react-dom react @types/react-dom @types/react --dev
-        yarn add --dev ts-loader
-        npm install --save-dev @babel/core @babel/preset-env
-        npm install --save-dev babel-loader
-        yarn add --dev eslint
-        yarn add --dev eslint-webpack-plugin
+        yarn install        :  Pour installer les depéndences (à faire depuis les deux répertoires)
+        yarn run dev        :  Pour construire le client en mode développement (depuis le répertoire _client_ )
+        yarn run build      :  Pour construire le client en mode production (depuis le répertoire _client_ )
+        yarn run start      :  Pour lancer le serveur (depuis le répertoire _server_ )
+        yarn run lint       :  Pour évaluer le code (depuis le répertoire _client_ )
 
-## Manipulation en local 
 
-        yarn install        :  Installer les depéndences (à faire dans les deux répertoires en local)
-        yarn run dev        :  construire le client en mode développement (depuis le répertoire *Client* )
-        yarn run build      :  construire le client en mode production (depuis le répertoire *Client* )
-        yarn run start      :  lancer le serveur (depuis le répertoire *server* )
+
