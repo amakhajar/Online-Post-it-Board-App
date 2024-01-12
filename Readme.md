@@ -25,12 +25,13 @@ Le projet est composé de deux répertoires principaux :
 
 ##### 1. Cloner le projet
 
-`git clone https://forge.univ-lyon1.fr/p2312644/tiw8.git`
-
+~~~~
+git clone https://forge.univ-lyon1.fr/p2312644/tiw8.git
+~~~~
 ##### 2. Installer les dépendances 
-
- `yarn install` 
-
+~~~~
+ yarn install 
+~~~~
 > _Remarque: à lancer depuis les deux répertoires _client_ et _server__
 
 ##### 3. Lancer le serveur
