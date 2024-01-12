@@ -14,7 +14,8 @@ Le projet est composé de deux principaux dossiers :
 ## Exigences (dernière version lts)
 
     NodeJs 
-    npm    
+    nvm
+    npm/yarn    
     Express
 
 ## Dépendances
