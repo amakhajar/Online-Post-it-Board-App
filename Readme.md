@@ -52,7 +52,7 @@ cd client && yarn run dev
 cd client && yarn run build
 ~~~~
 
-> _L'application est disponible sur_ [localhost:3000](localhost:3000) 
+> _L'application est disponible sur_ [localhost:3000](http://localhost:3000/) 
 
 ##### 5.  Evaluer le code 
 
