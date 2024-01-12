@@ -19,7 +19,7 @@ Le projet est composé de deux principaux dossiers :
 
 ## Dépendances
 
-### Server dependencies (package.json)
+### Server dependencies (cf. package.json)
 
     Dependencies : 
 
@@ -32,7 +32,7 @@ Le projet est composé de deux principaux dossiers :
 
        "typescript": "^5.3.3"
 
-### Client dependencies (package.json)
+### Client dependencies (cf. package.json)
 
     Dependencies : 
 
@@ -66,7 +66,7 @@ Le projet est composé de deux principaux dossiers :
 
 ## Manipulation En Local 
 
-        yarn install        :  Pour installer les depéndences (à faire depuis les deux répertoires)
+        yarn install        :  Pour installer les depéndences (à lancer depuis les deux répertoires)
         yarn run dev        :  Pour construire le client en mode développement (depuis le répertoire _client_ )
         yarn run build      :  Pour construire le client en mode production (depuis le répertoire _client_ )
         yarn run start      :  Pour lancer le serveur (depuis le répertoire _server_ )
