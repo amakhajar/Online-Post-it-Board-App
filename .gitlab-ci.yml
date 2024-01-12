@@ -1,25 +1,14 @@
 image: node
 
-
+before-script:
+  - cd client && yarn install
 
 stages:
   - build
   - lint
   - deploy
 
-cache:
-  paths:
-    - node_modules/
 
-#build de l'application
-first-job:
- 
-  stage: build
-  script:
-    - yarn install --immutable 
-  artifacts:
-    paths:
-    - node_modules
 
 
 
@@ -29,18 +18,12 @@ eslint:
  stage: lint
  # What scripts do we want to run?
  script:
-    # install eslint
-    - yarn add eslint
-    - cd client
-    # Run eslint
-    - yarn run eslint src/*.tsx
+    - yarn run lint
 
 pages:
   stage: deploy
   script:
-  - cd client
-  - yarn install
-  - yarn run production
+  - yarn run build
   - rm -rf public
   - mv dist/* $CI_PROJECT_DIR/public
 
