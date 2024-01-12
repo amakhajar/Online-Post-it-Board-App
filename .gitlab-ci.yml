@@ -1,6 +1,6 @@
 image: node
 
-.install_dependencies:
+default:
   before-script:
    - cd client && yarn install
 
@@ -16,14 +16,14 @@ stages:
 # Lets name our Job eslint, because that's what it's doing.
 eslint:
  # tell eslint what stage it is. (This could also be build or test for example)
- extends: .install_dependencies
+ 
  stage: lint
  # What scripts do we want to run?
  script:
     - yarn run lint
 
 pages:
-  extends: .install_dependencies
+  
   stage: deploy
   script:
   - yarn run build
