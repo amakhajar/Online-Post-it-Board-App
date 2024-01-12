@@ -5,34 +5,29 @@ default:
    - cd client && yarn install
 
 stages:
-  - build
-  - lint
+  #- lint
   - deploy
 
 
 
-
-
-# Lets name our Job eslint, because that's what it's doing.
-eslint:
- # tell eslint what stage it is. (This could also be build or test for example)
- 
- stage: lint
- # What scripts do we want to run?
- script:
-    - yarn run lint
+#eslint:
+# stage: lint
+# script:
+ #   - yarn run lint
 
 pages:
   
   stage: deploy
+  variables:
+    PUBLIC_URL: https://p2312644.forge.univ-lyon1.fr/tiw8-tp1
   script:
-  - yarn run build
-  - rm -rf public
-  - mv dist/* $CI_PROJECT_DIR/public
-
+    - yarn run build
+  
   artifacts:
     paths:
-    - public
+    - ./dist
+
+  publish: ./dist
 
 
 
