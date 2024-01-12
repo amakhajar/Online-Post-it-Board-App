@@ -5,7 +5,7 @@ Réalisé par **Hajar Amakhzoun**
 
 L'application est déployée et disponible sur ce lien:http://tiw8-p2312644-ada18a34041d10e39f5ffeb8b65a1dbed2f84e7cbb88e1b7d.pages.univ-lyon1.fr/
 
-Le projet est composé de deux dossiers importants :
+Le projet est composé de deux principaux dossiers :
 
   1. Dossier *Server*: partie back de l'application (NodeJs + ExpressJs)  
   2. Dossier *Client*: partie front de l'application (React)
