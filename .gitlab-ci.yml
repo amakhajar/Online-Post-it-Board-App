@@ -1,32 +1,52 @@
-image: node:latest
+image: node
+
+
 
 stages:
   - build
-  - run
+  - lint
+  - deploy
 
-# Job's name
+cache:
+  paths:
+    - node_modules/
+
+#build de l'application
 first-job:
-  # Define stage
+ 
   stage: build
-  # What to run on the job.
   script:
-    - npm install
-    - npm install --save-dev ts-loader css-loader html-webpack-plugin mini-css-extract-plugin source-map-loader webpack webpack-cli eslint-webpack-plugin
+    - yarn install --immutable 
   artifacts:
     paths:
-      - node_modules
+    - node_modules
 
-second-job:
-  stage: run
-  script:
+
+
+# Lets name our Job eslint, because that's what it's doing.
+eslint:
+ # tell eslint what stage it is. (This could also be build or test for example)
+ stage: lint
+ # What scripts do we want to run?
+ script:
+    # install eslint
+    - yarn add eslint
     - cd client
-    - npm run dev
+    # Run eslint
+    - yarn run eslint src/*.tsx
+
+pages:
+  stage: deploy
+  script:
+  - cd client
+  - yarn install
+  - yarn run production
+  - rm -rf public
+  - mv dist/* $CI_PROJECT_DIR/public
+
   artifacts:
     paths:
-      - node_modules/
-      - client/dist/
+    - public
 
-second-job-parallel:
-  stage: run
-  script:
-    - echo "I'm running at the same time as second-job!!!"
+
+
