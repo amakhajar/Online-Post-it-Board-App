@@ -25,9 +25,9 @@ pages:
   
   artifacts:
     paths:
-    - ./dist
+    - client/dist
 
-  publish: ./dist
+  publish: client/dist
 
 
 
