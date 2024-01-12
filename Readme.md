@@ -3,7 +3,7 @@ Réalisé par **Hajar Amakhzoun**
 
 ## Le projet
 
-L'application est déployée et disponible sur ce lien: https://tiw8-ibrahimi-elamim.uni.codinget.me/
+L'application est déployée et disponible sur ce lien:http://tiw8-p2312644-ada18a34041d10e39f5ffeb8b65a1dbed2f84e7cbb88e1b7d.pages.univ-lyon1.fr/
 
 Le projet est composé de deux dossiers importants :
 
