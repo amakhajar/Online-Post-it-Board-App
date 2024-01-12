@@ -1,7 +1,7 @@
 image: node
 
 default:
-  before-script:
+  before_script:
    - cd client && yarn install
 
 stages:
