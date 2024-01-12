@@ -15,21 +15,21 @@ export  function Content()  {
           <div className="w-1/2 p-1 md:p-2">
             <img
                 alt="gallery"
-              className="animate-in fade-in-25 transform transition duration-500 
+              className=" transform transition duration-500 
               hover:scale-105 block h-full w-full rounded-lg object-cover object-center border-4 border-yellow-900"
               src={img6} />
           </div>
           <div className="w-1/2 p-1 md:p-2">
             <img
               alt="gallery"
-              className="animate-in fade-in-25  transform transition duration-500  border-4 border-yellow-900
+              className="  transform transition duration-500  border-4 border-yellow-900
               hover:scale-105  block h-full w-full rounded-lg object-cover object-center shadow-xl"
               src={img7} />
           </div>
           <div className="w-full p-1 md:p-2">
             <img
               alt="gallery"
-              className=" animate-in fade-in-25  transform transition duration-500 
+              className="   transform transition duration-500 
               hover:scale-105 border-4 border-yellow-900 block h-full w-full rounded-lg object-cover object-center shadow-xl"
               src={img2} />
           </div>
@@ -38,21 +38,21 @@ export  function Content()  {
           <div className="w-full p-1 md:p-2">
             <img
               alt="gallery"
-              className="animate-in fade-in-25  border-4 border-yellow-900 transform transition duration-500 
+              className="  border-4 border-yellow-900 transform transition duration-500 
               hover:scale-105 block h-full w-full rounded-lg object-cover object-center shadow-xl"
               src={img1} />
           </div>
           <div className="w-1/2 p-1 md:p-2">
             <img
               alt="gallery"
-              className=" animate-in fade-in-25  border-4 border-yellow-900 transform transition duration-500 
+              className="   border-4 border-yellow-900 transform transition duration-500 
               hover:scale-105 block h-full w-full rounded-lg object-cover object-center shadow-xl"
               src={img4}/>
           </div>
           <div className="w-1/2 p-1 md:p-2">
             <img
               alt="gallery"
-              className=" animate-in fade-in-25 border-4 border-yellow-900 transform transition duration-500 
+              className="  border-4 border-yellow-900 transform transition duration-500 
               hover:scale-105 block h-full w-full rounded-lg object-cover object-center shadow-xls"
               src={img3}/>
           </div>
