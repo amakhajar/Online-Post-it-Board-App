@@ -9,6 +9,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 module.exports = (env, argv) => {
   console.log(argv.mode);
   return {
+    
     entry: "./src/index.tsx",
     output: {
       path: path.join(__dirname, "dist"),
