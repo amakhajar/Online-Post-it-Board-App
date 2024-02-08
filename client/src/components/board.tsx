@@ -10,8 +10,12 @@ import { PostitType } from "../models/PostitType";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../state/store";
 import { addPostit } from "../state/slices/boardSlice";
+type boardProps={
+    boards: BoardType[]
+}
 
-export default function Board({ boards}: any) { 
+
+export default function Board( {boards}:boardProps) { 
   let {boardId}=useParams()
   let {postitId}=useParams()
   

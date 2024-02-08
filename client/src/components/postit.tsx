@@ -5,7 +5,7 @@ import { deletePostit, hidePostit, likePostit } from "../state/slices/boardSlice
 import { PostitType } from "../models/PostitType";
 import { useParams } from "react-router-dom";
 
-interface postitProps{
+type postitProps={
     postit: PostitType
 }
 
