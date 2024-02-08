@@ -13,7 +13,12 @@ app.listen(port, () => {
 app.use('/hello', HelloRouteur);
 
 app.use(express.static(DIST_DIR));
-app.use('*',express.static(HTML_FILE));
-app.get('*',  (req, res) => {
+
+
+app.get(['/', '/board/:boardId', '/board/:boardId/postit/:postitId'], (req, res) => {
+  if (req.url.includes("bundle.js")) {
+      res.sendFile(path.join(DIST_DIR, 'bundle.js'));
+      return;
+  }
   res.sendFile(HTML_FILE);
 });

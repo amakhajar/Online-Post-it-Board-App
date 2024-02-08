@@ -1,21 +1,17 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import "./style.css";
-import Sidebar from './components/sidebar';
-import TopBar from './components/topBar';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import { BrowserRouter, Routes,Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { App } from './app';
+import { store } from './state/store';
 export function Index () {
 
   
   return (
     <div>
+      <Provider store={store}>
      <App/>
-   
+   </Provider>
   </div>
   
   );
