@@ -1,4 +1,4 @@
-import React = require("react");
+import * as React from 'react';
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../state/store";
 import { deletePostit, hidePostit, likePostit } from "../state/slices/boardSlice";

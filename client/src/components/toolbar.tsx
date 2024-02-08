@@ -1,4 +1,4 @@
-import React = require("react");
+import * as React from 'react';
 import { Link, useParams } from "react-router-dom";
 
 import { useDispatch } from "react-redux";

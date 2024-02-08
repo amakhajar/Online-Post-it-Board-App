@@ -1,12 +1,11 @@
-import React = require("react");
+import * as React from 'react';
 
 import { Postit } from "./postit";
 import {  useParams } from 'react-router-dom';
 import Sidebar from "./sidebar";
 import Toolbar from "./toolbar";
 import { BoardType } from "../models/BoardType";
-import Modal from "./modal";
-import { useState } from "react";
+
 import { PostitType } from "../models/PostitType";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../state/store";

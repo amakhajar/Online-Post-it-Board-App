@@ -12,7 +12,7 @@ import HomePage from './components/homePage';
 export function App() {
    
  
- const board=useSelector((state:Rootstate) => state.board.value);
+ const board=useSelector((state:Rootstate) => state.board.value)
 
 
   return (
