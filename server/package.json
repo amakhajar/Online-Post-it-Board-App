@@ -6,7 +6,6 @@
   "scripts": {
     "start": "tsc && node dist/index.js",
     "watch": "nodemon --ext *"
-    
   },
   "repository": {
     "type": "git",
@@ -18,6 +17,8 @@
     "@types/express": "^4.17.21",
     "@types/node": "^20.10.6",
     "express": "^4.18.2",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {

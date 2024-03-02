@@ -60,26 +60,28 @@ const data: BoardType[] = [
 
 interface BoardState {
   value: BoardType[];
+  likedPostits: PostitType[];
+  
 }
 
 const initialState: BoardState = {
-  value: data
+  value: data,
+  likedPostits: []
 };
 
 const boardSlice = createSlice({
   name: "board",
   initialState,
   reducers: {
-    selectedBoard: (state, action: PayloadAction<number>) => {
-      state.value[0].id == action.payload;
-      console.log(state.value)
+    currentBoard: (state, action: PayloadAction<number>) => {
+   state.value.find((board) => board.id === action.payload);
     },
     addPostit: (state, action: PayloadAction<{ newPostit: PostitType; boardid: number }>) => {
       state.value.find((board) => board.id == action.payload.boardid).postits.push(action.payload.newPostit)
 
     },
     deletePostit: (state, action: PayloadAction<{ postitid: number; boardid: number }>) => {
-      state.value.find((board) => board.id == action.payload.boardid).postits = state.value.find((board) => board.id == action.payload.boardid).postits.filter(post => post.id !== action.payload.postitid)
+      state.value.find((board) => board.id == action.payload.boardid).postits=state.value.find((board) => board.id == action.payload.boardid).postits.filter(post => post.id != action.payload.postitid)
     },
     hidePostit: (state, action: PayloadAction<{ postitid: number; boardid: number }>) => {
 
@@ -91,12 +93,32 @@ const boardSlice = createSlice({
 
       const postToLike = state.value.find((board) => board.id == action.payload.boardid).postits.find((post) => post.id == action.payload.postitid)
       postToLike.liked =!postToLike.liked
-      state.value.find((board) => board.id == action.payload.boardid).postits.filter((post) => post != postToLike)
+      if(postToLike.liked){
+      state.likedPostits.push(postToLike)}
+      else{
+        state.likedPostits=state.likedPostits.filter(post => post.id!= postToLike.id)
+      }
+    },
+    addBoard: (state, action: PayloadAction<{ title: string; notes?: string }>) => {
+      let newBoard:BoardType={
+        type:'board',
+        id:state.value.length+1,
+        title:action.payload.title,
+        postits:[],
+        notes:action.payload.notes
+      }
+      state.value.push(newBoard)
+
+    },
+    editPostit: (state, action: PayloadAction<{ postitid: number; boardid: number; title:string;content?:string}>) => {
+     
+      state.value.find((board) => board.id == action.payload.boardid).postits.find((post) => post.id == action.payload.postitid).title=action.payload.title
+
     },
 
   }
 });
 
-export const { selectedBoard, addPostit, deletePostit, hidePostit,likePostit } = boardSlice.actions;
+export const { currentBoard, addPostit, deletePostit, hidePostit,likePostit,addBoard,editPostit } = boardSlice.actions;
 
 export default boardSlice.reducer;

@@ -9,7 +9,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 module.exports = (env, argv) => {
   console.log(argv.mode);
   return {
-    
+    devtool: 'eval-source-map',
     entry: "./src/index.tsx",
     output: {
       path: path.join(__dirname, "dist"),

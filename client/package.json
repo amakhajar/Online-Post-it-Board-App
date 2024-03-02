@@ -8,10 +8,14 @@
     "dev": "webpack --mode development --watch"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.23.10",
     "@tailwindcss/forms": "^0.5.7",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
     "autoprefixer": "^10.4.16",
+    "babel-eslint": "^10.1.0",
     "css-loader": "^6.9.0",
     "daisyui": "^4.6.1",
     "file-loader": "^6.2.0",
@@ -33,13 +37,23 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.1.0",
-    "eslint": "5.16.0",
+    "@types/redux-state-sync": "^3.1.9",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.33.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "react-device-detect": "^2.2.3",
+    "react-full-screen": "^1.1.1",
     "react-redux": "^9.1.0",
     "react-router": "^6.21.3",
     "react-router-dom": "^6.21.3",
+    "redux-state-sync": "^3.1.4",
+    "socket.io-client": "^4.7.4",
     "tailwindcss": "^3.4.1"
+  },
+  "resolutions": {
+    "strip-ansi": "6.0.1",
+    "string-width": "4.2.2",
+    "wrap-ansi": "7.0.0"
   }
 }

@@ -1,25 +1,28 @@
 import * as React from 'react';
 import { Link, useParams } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../state/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, Rootstate } from "../state/store";
 import { PostitType } from "../models/PostitType";
 import { addPostit } from "../state/slices/boardSlice";
 import { BoardType } from "../models/BoardType";
 
+type toolbarProps={
+ board:BoardType
+}
+export default function Toolbar({ board }: toolbarProps) {
 
-export default function Toolbar({ board }: any) {
-
-  let { boardId } = useParams()
+  const { boardId } = useParams()
   const boardid = parseInt(boardId)
 
-
+  
+//   const current = useSelector((state: Rootstate) => state.board.currentBoard)
 
   const dispatch = useDispatch<AppDispatch>();
   const add = () => {
     const newPostit: PostitType = {
       type: "postit",
-      id: board.find((b: BoardType) => b.id == boardid).postits.length + 1,
+      id: board.postits.length + 1,
       board: boardId,
       title: (document.getElementById("title") as HTMLInputElement).value,
 
@@ -28,26 +31,15 @@ export default function Toolbar({ board }: any) {
       visible: true,
     }
     dispatch(addPostit({ newPostit, boardid }));
-    (document.getElementById("title")as HTMLInputElement).value='';
-    (document.getElementById("Content")as HTMLInputElement).value='';
-    (document.getElementById("color")as HTMLInputElement).value='';
+    (document.getElementById("title") as HTMLInputElement).value = '';
+    (document.getElementById("Content") as HTMLInputElement).value = '';
+    (document.getElementById("color") as HTMLInputElement).value = '';
   }
-  const likes = () => {
-    const newPostit: PostitType = {
-      type: "postit",
-      id: board.find((b: BoardType) => b.id == boardid).postits.length + 1,
-      board: boardId,
-      title: (document.getElementById("title") as HTMLInputElement).value,
+  const likedPostits = useSelector((state: Rootstate) => state.board.likedPostits)
+ // const boards = useSelector((state: Rootstate) => state.board.value) 
 
-      text: (document.getElementById("Content") as HTMLInputElement).value,
-      color: (document.getElementById("color") as HTMLInputElement).value,
-      visible: true,
-    }
-    dispatch(addPostit({ newPostit, boardid }));
-    (document.getElementById("title")as HTMLInputElement).value='';
-    (document.getElementById("Content")as HTMLInputElement).value='';
-    (document.getElementById("color")as HTMLInputElement).value='';
-  }
+
+
   return (
 
     <div >
@@ -56,26 +48,32 @@ export default function Toolbar({ board }: any) {
           <h2 className="leading-loose font-serif uppercase ml-7 text-xl">{board.title}</h2>
         </div>
         <div className="dropdown dropdown-hover dropdown-end">
-  <div tabIndex={0} role="button" >
-  <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#b91c1c" viewBox="0 0 24 24">
-    <path d="m12.7 20.7 6.2-7.1c2.7-3 2.6-6.5.8-8.7A5 5 0 0 0 16 3c-1.3 0-2.7.4-4 1.4A6.3 6.3 0 0 0 8 3a5 5 0 0 0-3.7 1.9c-1.8 2.2-2 5.8.8 8.7l6.2 7a1 1 0 0 0 1.4 0Z"/>
-  </svg>
-  
-  </div>
-  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2  bg-slate-100 rounded-box w-32">
-    <li>
-      <Link to={'/board/{boardId}'}><a>Item 1</a></Link>
-      
-   
-    </li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-        
-        <div className="flex-none" >
+          <div tabIndex={0} role="button" >
+          {!likedPostits.length ?
+                         <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                     </svg> : <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#b91c1c" viewBox="0 0 24 24">
+              <path d="m12.7 20.7 6.2-7.1c2.7-3 2.6-6.5.8-8.7A5 5 0 0 0 16 3c-1.3 0-2.7.4-4 1.4A6.3 6.3 0 0 0 8 3a5 5 0 0 0-3.7 1.9c-1.8 2.2-2 5.8.8 8.7l6.2 7a1 1 0 0 0 1.4 0Z" />
+            </svg>
+          }
+          </div>
+          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2  bg-slate-100 rounded-box w-32">
+            <i>You liked:</i>
+            {
+              likedPostits.map((item: PostitType) => (
+                <li key={item.id}>
+                  <Link to={`/board/${item.board}/postit/${item.id}`}><div>{item.title}</div></Link>
+
+
+                </li>))}
+
+          </ul>
+        </div>
+
+        <div >
           {/* <i>New Postit</i> */}
-          <button id="addButton" className="btn btn-circle btn-ghost" onClick={() => (document.getElementById('my_modal_1') as HTMLDialogElement).showModal()}>
-            <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <button id="addButton" onClick={() => (document.getElementById('my_modal_1') as HTMLDialogElement).showModal()}>
+            <svg className="w-6 h-6 text-gray-800 dark:text-white mx-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 17h6m-3 3v-6M4.9 4H9c.5 0 .9.4.9.9V9c0 .5-.4.9-.9.9H5a.9.9 0 0 1-.9-.9V5c0-.5.4-.9.9-.9Zm10 0H19c.5 0 .9.4.9.9V9c0 .5-.4.9-.9.9h-4a.9.9 0 0 1-.9-.9V5c0-.5.4-.9.9-.9Zm-10 10H9c.5 0 .9.4.9.9V19c0 .5-.4.9-.9.9H5a.9.9 0 0 1-.9-.9v-4c0-.5.4-.9.9-.9Z" />
             </svg>
           </button>
@@ -110,7 +108,7 @@ export default function Toolbar({ board }: any) {
           <div className="modal-action flex justify-end">
             <form method="dialog">
               <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-2.5 mr-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " onClick={add}>Add</button>
-              <button type="submit" className="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 mr-11 " >Cancel</button>
+              <button type="submit" className="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 lg:mr-11 " >Cancel</button>
             </form>
           </div>
         </div>
