@@ -16,7 +16,7 @@ Le projet est composé de deux répertoires principaux :
 
   
 -   *Server* : partie back de l'application (_Node.js_ + _Express.js_)  
-  -   *Client* : partie front de l'application (_React_+Redux toolkit)
+  -   *Client* : partie front de l'application (_React_ + _Redux toolkit_)
 ### Client 
 Composé de trois répertoires essentiels :
 
