@@ -3,7 +3,7 @@ import {  useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, Rootstate } from '../state/store';
-import { addBoard, currentBoard } from '../state/slices/boardSlice';
+import { addBoard, setBoard } from '../state/slices/boardSlice';
 import { BoardType } from '../models/BoardType';
 import { Outlet } from "react-router-dom";
 import { useRef } from 'react';
@@ -14,7 +14,15 @@ const sidebar = () => {
     const titleRef=useRef(null);
     const notesRef=useRef(null);
 
-  
+    const changeBoard = (i:number) => {
+      
+      
+        
+        dispatch(setBoard(i));
+       navigate(`/board/${i}`);
+      
+        
+      }
     const add = () => {
       
       const notes=notesRef.current.value ;
@@ -56,7 +64,7 @@ const sidebar = () => {
                                 </svg>
 
 
-                                <h1 className="font-bold text-gray-200 text-[16px] ml-3">My Courses</h1>
+                                <h1 className="font-bold text-gray-200 text-[16px] ml-3" onClick={()=>navigate('/')}>My Courses</h1>
                                 <button className="ml-24" onClick={() => (document.getElementById('my_modal_2') as HTMLDialogElement).showModal()}>
                                     <svg className="w-6 h-6 text-gray-200 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7 7V5" />
@@ -67,14 +75,13 @@ const sidebar = () => {
                         </div>
 
                         {boards.map((item: BoardType) => (
-                            <li key={item.id}><a onClick={() => {navigate(`board/${item.id}`),dispatch
-                            (currentBoard(item.id))}}>
+                            <li key={item.id}><button onClick={()=>changeBoard(item.id)}>
                                 <i className="w-1 h-1 bg-gray-200 rounded-full">
                                 </i>
                                 <div onClick={() => { document.getElementById('my-drawer-2').click() }} className="text-[15px] ml-4 text-gray-200 font-bold">
                                     {item.title}
                                 </div>
-                            </a>
+                            </button>
                             </li>
 
                         ))}

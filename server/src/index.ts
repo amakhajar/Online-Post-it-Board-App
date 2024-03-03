@@ -46,7 +46,7 @@ io.on('connection', function (socket) {
   console.log('a user connected');
   socket.on('my action',  (action)=>{
     console.log(action);
-    action.meta=false;
+    action.new=false;
     socket.broadcast.emit('my action',action);
   });
 });

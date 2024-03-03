@@ -7,14 +7,16 @@ import Toolbar from "./toolbar";
 import { BoardType } from "../models/BoardType";
 
 import { PostitType } from "../models/PostitType";
-import {  Rootstate } from '../state/store';
-import {  useSelector } from 'react-redux';
+import {   Rootstate } from '../state/store';
+import {   useSelector } from 'react-redux';
 
 
 
 export default function Board() {
     const { boardId } = useParams()
     const { postitId } = useParams()
+   
+ 
     const boards = useSelector((state: Rootstate) => state.board.value.find((d: BoardType) => (d.id === parseInt(boardId))))
     
    
