@@ -7,7 +7,7 @@ const data: BoardType[] = [
     type: "board",
     id: 1,
     title: "TIW 8",
-    notes: "",
+    notes: "Technologies Web synchrones et multi-dispositifs",
     postits: [
       {
         type: "postit",
@@ -61,22 +61,21 @@ const data: BoardType[] = [
 interface BoardState {
   value: BoardType[];
   likedPostits: PostitType[];
-  currentBoard: BoardType
+  
   
 }
 
 const initialState: BoardState = {
   value: data,
-  likedPostits: [],
-  currentBoard: null
+  likedPostits: []
 };
 
 const boardSlice = createSlice({
   name: "board",
   initialState,
   reducers: {
-    setBoard: (state, action: PayloadAction<number>) => {
-     state.currentBoard=state.value.find(board=>(board.id===action.payload))
+    currentBoard: (state, action: PayloadAction<number>) => {
+     state.value.find(board=>(board.id===action.payload))
     },
     addPostit: (state, action: PayloadAction<{ newPostit: PostitType; boardid: number }>) => {
       state.value.find((board) => board.id == action.payload.boardid).postits.push(action.payload.newPostit)
@@ -121,6 +120,6 @@ const boardSlice = createSlice({
   }
 });
 
-export const { setBoard, addPostit, deletePostit, hidePostit,likePostit,addBoard,editPostit } = boardSlice.actions;
+export const { currentBoard, addPostit, deletePostit, hidePostit,likePostit,addBoard,editPostit } = boardSlice.actions;
 
 export default boardSlice.reducer;

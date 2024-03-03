@@ -3,7 +3,7 @@ import {  useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, Rootstate } from '../state/store';
-import { addBoard, setBoard } from '../state/slices/boardSlice';
+import { addBoard, currentBoard } from '../state/slices/boardSlice';
 import { BoardType } from '../models/BoardType';
 import { Outlet } from "react-router-dom";
 import { useRef } from 'react';
@@ -14,26 +14,17 @@ const sidebar = () => {
     const titleRef=useRef(null);
     const notesRef=useRef(null);
 
-    const changeBoard = (i:number) => {
-      
-      
-        
-        dispatch(setBoard(i));
-       navigate(`/board/${i}`);
-      
-        
+    const changeBoard = (i:number) => {       
+        dispatch(currentBoard(i));
+        navigate(`/board/${i}`); 
       }
-    const add = () => {
-      
+
+    const add = () => {   
       const notes=notesRef.current.value ;
-      const title=titleRef.current.value;
-      
+      const title=titleRef.current.value;  
       dispatch(addBoard({ title, notes }));
       titleRef.current.value='';
       notesRef.current.value='';
-     
-    
-      
     }
 
     return (
@@ -120,7 +111,7 @@ const sidebar = () => {
 
           <div className="modal-action flex justify-end">
             <form method="dialog">
-              <button type="submit" className="text-slate-100 bg-slate-300 hover:bg-slate-500  focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 lg:mr-11 sm:mr-3 " >Cancel</button>
+            <button type="submit" className="text-slate-100 bg-slate-300 hover:bg-slate-500  focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 lg:mr-3 sm:mr-3 " >Cancel</button>
               <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-2.5 mr-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " onClick={add}>Add</button>
             </form>
           </div>
