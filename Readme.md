@@ -6,7 +6,7 @@ Cette  application est une version digitale d'un board de post-its qui faciliten
 
 L'application est déployée et accessible via ce lien:
 http://tp2-tiw81-10e0902ac35482822319a17b8372046143133ca7de23f389a23f6.pages.univ-lyon1.fr/
-Cependant pour faire des manipulations, il est conseillé de la lancer en local.
+Cependant il est conseillé de la lancer en local, pour de meilleures manipulations.
 > [NOTE]  Vu l'absence d'enregistrement d'état, un raffraichissement de la page va reinitier l'application
 
 
