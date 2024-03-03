@@ -23,6 +23,7 @@ const sidebar = () => {
       const notes=notesRef.current.value ;
       const title=titleRef.current.value;  
       dispatch(addBoard({ title, notes }));
+      navigate(`/board/${boards.length+1}`);
       titleRef.current.value='';
       notesRef.current.value='';
     }
