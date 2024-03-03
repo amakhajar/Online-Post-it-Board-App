@@ -16,7 +16,7 @@ export default function Toolbar({ board }: toolbarProps) {
   const boardid = parseInt(boardId)
 
   
-//   const current = useSelector((state: Rootstate) => state.board.currentBoard)
+
 
   const dispatch = useDispatch<AppDispatch>();
   const add = () => {
@@ -36,7 +36,6 @@ export default function Toolbar({ board }: toolbarProps) {
     (document.getElementById("color") as HTMLInputElement).value = '';
   }
   const likedPostits = useSelector((state: Rootstate) => state.board.likedPostits)
- // const boards = useSelector((state: Rootstate) => state.board.value) 
 
 
 
