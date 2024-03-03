@@ -48,7 +48,7 @@ L'application vous permet de faire le suivant :
 - Supprimer un post-it 
 - Aimer un post-it
 - Cacher un post-it
-- Aggrandir un post-it
+- Voir un post-it en plein écran
 - Changer _le titre_ d'un post-it (il suffit de poser votre curseur sur le champ du titre ET cliquer sur l'icone du *stylo* pour enregistrer les modifications)
 - Voir la liste des post-its favoris
 - Basculer entre les post-its _mais_ que sur mobile
