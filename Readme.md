@@ -52,7 +52,7 @@ L'application vous permet de faire le suivant :
 - Changer _le titre_ d'un post-it (il suffit de poser votre curseur sur le champ du titre ET cliquer sur l'icone du *stylo* pour enregistrer les modifications)
 - Voir la liste des post-its favoris
 - Basculer entre les post-its _mais_ que sur mobile
-
+- L'application est synchronisée donc vous pouvez voir les changements sur deux onglets en temps réel (à l'exception du changement de board)
 ##### 1. Cloner le projet
 
 ~~~~
