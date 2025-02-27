@@ -4,9 +4,6 @@
 ## Projet
 Cette  application est une version digitale d'un board de post-its qui facilitent aux étudiants leur prise de notes. 
 
-L'application est déployée et accessible via ce lien:
-http://tp2-tiw81-10e0902ac35482822319a17b8372046143133ca7de23f389a23f6.pages.univ-lyon1.fr/
-Cependant il est conseillé de la lancer en local, pour de meilleures manipulations.
 > [NOTE]  Vu l'absence d'une base de données ou d'un outil de storage, un rafraîchissement de la page va réinitialiser l'application
 
 
